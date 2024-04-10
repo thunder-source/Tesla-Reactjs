@@ -1,6 +1,5 @@
 import React, { useState, useRef, BaseSyntheticEvent } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -59,30 +58,10 @@ export default function RegisterPage() {
       .then((userCredential) => {
         const user = userCredential.user;
         navigate('/');
-        toast.success(user, {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'colored',
-        });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        toast.error(errorCode, {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'colored',
-        });
       });
   };
 
